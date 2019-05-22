@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v3.0.5),
-    on mié 22 may 15:28:49 2019
+    on mié 22 may 16:34:14 2019
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -81,6 +81,16 @@ block_ranges = pd.read_csv('choose_blocks.csv')
 block_ranges_exp = list(block_ranges.choose_blocks_exp)
 random.shuffle(block_ranges_exp)
 
+
+# Initialize components for Routine "fixation_cross_routine"
+fixation_cross_routineClock = core.Clock()
+polygon = visual.ShapeStim(
+    win=win, name='polygon', vertices='cross',
+    size=(0.15, 0.15),
+    ori=0, pos=(0, 0),
+    lineWidth=1, lineColor=[1,1,1], lineColorSpace='rgb',
+    fillColor=[1,1,1], fillColorSpace='rgb',
+    opacity=1, depth=0.0, interpolate=True)
 
 # Initialize components for Routine "trial"
 trialClock = core.Clock()
@@ -202,6 +212,58 @@ for thisBlock_loop in block_loops:
     if thisBlock_loop != None:
         for paramName in thisBlock_loop:
             exec('{} = thisBlock_loop[paramName]'.format(paramName))
+    
+    # ------Prepare to start Routine "fixation_cross_routine"-------
+    t = 0
+    fixation_cross_routineClock.reset()  # clock
+    frameN = -1
+    continueRoutine = True
+    routineTimer.add(1.000000)
+    # update component parameters for each repeat
+    # keep track of which components have finished
+    fixation_cross_routineComponents = [polygon]
+    for thisComponent in fixation_cross_routineComponents:
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    
+    # -------Start Routine "fixation_cross_routine"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = fixation_cross_routineClock.getTime()
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *polygon* updates
+        if t >= 0.0 and polygon.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            polygon.tStart = t
+            polygon.frameNStart = frameN  # exact frame index
+            polygon.setAutoDraw(True)
+        frameRemains = 0.0 + 1- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if polygon.status == STARTED and t >= frameRemains:
+            polygon.setAutoDraw(False)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in fixation_cross_routineComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "fixation_cross_routine"-------
+    for thisComponent in fixation_cross_routineComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
     
     # set up handler to look after randomisation of conditions etc
     word_list = data.TrialHandler(nReps=1, method='random', 

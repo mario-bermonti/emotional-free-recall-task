@@ -235,6 +235,30 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="fixation_cross_routine">
+      <PolygonComponent name="polygon">
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="1" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="polygon" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="shape" updates="constant" val="cross" valType="str"/>
+        <Param name="size" updates="constant" val="(0.15, 0.15)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </PolygonComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="choose_block_setup"/>
@@ -249,6 +273,7 @@
       <Param name="name" updates="None" val="block_loops" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="fixation_cross_routine"/>
     <LoopInitiator loopType="TrialHandler" name="word_list">
       <Param name="Selected rows" updates="None" val="$block_ranges_exp.pop()" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('text', 'negative11'), ('condition', 'negative')]), OrderedDict([('text', 'negative12'), ('condition', 'negative')]), OrderedDict([('text', 'negative13'), ('condition', 'negative')]), OrderedDict([('text', 'neutral11'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral12'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral13'), ('condition', 'neutral')]), OrderedDict([('text', 'positive11'), ('condition', 'positive')]), OrderedDict([('text', 'positive12'), ('condition', 'positive')]), OrderedDict([('text', 'positive13'), ('condition', 'positive')]), OrderedDict([('text', 'negative21'), ('condition', 'negative')]), OrderedDict([('text', 'negative22'), ('condition', 'negative')]), OrderedDict([('text', 'negative23'), ('condition', 'negative')]), OrderedDict([('text', 'neutral21'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral22'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral23'), ('condition', 'neutral')]), OrderedDict([('text', 'positive21'), ('condition', 'positive')]), OrderedDict([('text', 'positive22'), ('condition', 'positive')]), OrderedDict([('text', 'positive23'), ('condition', 'positive')])]" valType="str"/>
