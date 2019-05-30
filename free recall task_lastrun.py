@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v3.0.5),
-    on mié 22 may 16:34:14 2019
+    on mié 29 may 10:14:25 2019
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -81,6 +81,16 @@ block_ranges = pd.read_csv('choose_blocks.csv')
 block_ranges_exp = list(block_ranges.choose_blocks_exp)
 random.shuffle(block_ranges_exp)
 
+
+# Initialize components for Routine "Instructions"
+InstructionsClock = core.Clock()
+text_instructions_exp = visual.TextStim(win=win, name='text_instructions_exp',
+    text="Vas a ver una lista de palabras.\n\nLas palabras van a ser presentadas una a la vez. \n\nLuego vas a escribir todas las palabras que recuerdes de la lista, separadas por un espacio.\n\nPresiona 'Enter' cuando termines de escribir todas las palabras que recuerdes.\n\n\nPresiona cualquier tecla para continuar.",
+    font='Arial',
+    pos=(0, 0), height=0.04, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
 
 # Initialize components for Routine "fixation_cross_routine"
 fixation_cross_routineClock = core.Clock()
@@ -192,6 +202,75 @@ for thisComponent in choose_block_setupComponents:
         thisComponent.setAutoDraw(False)
 
 # the Routine "choose_block_setup" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# ------Prepare to start Routine "Instructions"-------
+t = 0
+InstructionsClock.reset()  # clock
+frameN = -1
+continueRoutine = True
+# update component parameters for each repeat
+key_resp_start_exp = event.BuilderKeyResponse()
+# keep track of which components have finished
+InstructionsComponents = [text_instructions_exp, key_resp_start_exp]
+for thisComponent in InstructionsComponents:
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+
+# -------Start Routine "Instructions"-------
+while continueRoutine:
+    # get current time
+    t = InstructionsClock.getTime()
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_instructions_exp* updates
+    if t >= 0.0 and text_instructions_exp.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        text_instructions_exp.tStart = t
+        text_instructions_exp.frameNStart = frameN  # exact frame index
+        text_instructions_exp.setAutoDraw(True)
+    
+    # *key_resp_start_exp* updates
+    if t >= 0.0 and key_resp_start_exp.status == NOT_STARTED:
+        # keep track of start time/frame for later
+        key_resp_start_exp.tStart = t
+        key_resp_start_exp.frameNStart = frameN  # exact frame index
+        key_resp_start_exp.status = STARTED
+        # keyboard checking is just starting
+        event.clearEvents(eventType='keyboard')
+    if key_resp_start_exp.status == STARTED:
+        theseKeys = event.getKeys()
+        
+        # check for quit:
+        if "escape" in theseKeys:
+            endExpNow = True
+        if len(theseKeys) > 0:  # at least one key was pressed
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or event.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in InstructionsComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "Instructions"-------
+for thisComponent in InstructionsComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "Instructions" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
@@ -525,7 +604,7 @@ for thisBlock_loop in block_loops:
     # rest changes, the list needs to be updated with the
     # trial number after which there should be
     # a break
-    if word_list_number not in [0]:
+    if word_list_number not in [1, 3]:
         continueRoutine = False
     
     # Needs to be updated after verifying
