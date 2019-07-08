@@ -47,80 +47,6 @@
       </CodeComponent>
     </Routine>
     <Routine name="resp_parti"/>
-    <Routine name="response_participant">
-      <KeyboardComponent name="key_resp_exp">
-        <Param name="allowedKeys" updates="constant" val="'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','space','backspace','return'" valType="code"/>
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_exp" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="store" updates="constant" val="all keys" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
-      <TextComponent name="text_prompt_exp">
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
-        <Param name="name" updates="None" val="text_prompt_exp" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, .20)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="text" updates="constant" val="Escribe palabras:" valType="str"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-      </TextComponent>
-      <TextComponent name="resp_feedback">
-        <Param name="color" updates="constant" val="white" valType="str"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
-        <Param name="name" updates="None" val="resp_feedback" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="text" updates="set every frame" val="$resp_feedback_text" valType="str"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
-      </TextComponent>
-      <CodeComponent name="code_recall">
-        <Param name="Begin Experiment" updates="constant" val="resp_feedback_text = ''" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Py" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="# insert the correct symbol when the participant&amp;#10;# press backspace&amp;#10;if &quot;backspace&quot; in key_resp_exp.keys:&amp;#10;    key_resp_exp.keys.remove(&quot;backspace&quot;)&amp;#10;    &amp;#10;    if len(key_resp_exp.keys) &gt; 0:&amp;#10;        key_resp_exp.keys.pop()&amp;#10;        &amp;#10;# insert the correct symbol when the participant&amp;#10;# press space&amp;#10;elif &quot;space&quot; in key_resp_exp.keys:&amp;#10;        key_resp_exp.keys.remove(&quot;space&quot;)&amp;#10;        key_resp_exp.keys.append(' ')&amp;#10;&amp;#10;# save results and end routine when&amp;#10;# return in entered&amp;#10;elif 'return' in key_resp_exp.keys:&amp;#10;    key_resp_exp.keys.remove('return')&amp;#10;    # add data to results file&amp;#10;    thisExp.addData('text', 'summary')&amp;#10;    thisExp.addData('word_list', ' '.join(current_word_list))&amp;#10;    thisExp.addData('word_list_valence', ' '.join(current_word_list_valence))&amp;#10;    thisExp.addData('recall_resp_exp', resp_feedback_text)&amp;#10;    continueRoutine = False&amp;#10;        &amp;#10;resp_feedback_text = ''.join(key_resp_exp.keys)" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="resp_feedback_text = ''&amp;#10;current_word_list.clear()&amp;#10;current_word_list_valence.clear()" valType="extendedCode"/>
-        <Param name="name" updates="None" val="code_recall" valType="code"/>
-      </CodeComponent>
-    </Routine>
     <Routine name="trial">
       <TextComponent name="text_word">
         <Param name="color" updates="constant" val="white" valType="str"/>
@@ -184,10 +110,10 @@
     </Routine>
     <Routine name="rest">
       <CodeComponent name="code_2">
-        <Param name="Begin Experiment" updates="constant" val="# Initial value for word list&amp;#10;word_list_number = 0" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# Initial value for word list&amp;#10;word_list_number = 1" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="# Presents a break if the list of words&amp;#10;# is in the list&amp;#10;&amp;#10;# If number of lists presented before each&amp;#10;# rest changes, the list needs to be updated with the&amp;#10;# trial number after which there should be&amp;#10;# a break&amp;#10;if word_list_number not in [1, 3]:&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;# Needs to be updated after verifying&amp;#10;# the list of word lists so it correctly&amp;#10;# presents the break after the specified&amp;#10;# word list number&amp;#10;word_list_number += 1" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# Presents a break if the number of the current &amp;#10;# list is in the list&amp;#10;&amp;#10;# If the number of lists presented before each&amp;#10;# rest changes, the list needs to be updated with the&amp;#10;# trial number after which there should be&amp;#10;# a break&amp;#10;if word_list_number not in [3, 6, 9]:&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;# Needs to be updated after verifying&amp;#10;# the list of word lists so it correctly&amp;#10;# presents the break after the specified&amp;#10;# word list number&amp;#10;word_list_number += 1" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Py" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -260,7 +186,7 @@
       </PolygonComponent>
     </Routine>
     <Routine name="Instructions">
-      <TextComponent name="text_instructions_exp">
+      <TextComponent name="text_instructions">
         <Param name="color" updates="constant" val="white" valType="str"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
@@ -268,7 +194,7 @@
         <Param name="font" updates="constant" val="Arial" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
         <Param name="letterHeight" updates="constant" val="0.04" valType="code"/>
-        <Param name="name" updates="None" val="text_instructions_exp" valType="code"/>
+        <Param name="name" updates="None" val="text_instructions" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
@@ -281,13 +207,13 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_start_exp">
+      <KeyboardComponent name="key_resp_start">
         <Param name="allowedKeys" updates="constant" val="" valType="code"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_start_exp" valType="code"/>
+        <Param name="name" updates="None" val="key_resp_start" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -298,9 +224,223 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="practice_words">
+      <TextComponent name="text_word_practice">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="name" updates="None" val="text_word_practice" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="2" valType="code"/>
+        <Param name="text" updates="set every repeat" val="$text" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <CodeComponent name="code_store_words_practice">
+        <Param name="Begin Experiment" updates="constant" val="current_word_list = []" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="current_word_list.append(text)" valType="extendedCode"/>
+        <Param name="name" updates="None" val="code_store_words_practice" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="participant_response_exp">
+      <KeyboardComponent name="key_resp_exp">
+        <Param name="allowedKeys" updates="constant" val="'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','space','backspace','return'" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_exp" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="all keys" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <TextComponent name="text_prompt_exp">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="name" updates="None" val="text_prompt_exp" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, .20)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="text" updates="constant" val="Escribe palabras:" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <TextComponent name="resp_feedback_exp">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="name" updates="None" val="resp_feedback_exp" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="text" updates="set every frame" val="$resp_feedback_text_exp" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <CodeComponent name="code_recall">
+        <Param name="Begin Experiment" updates="constant" val="resp_feedback_text_exp = ''" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="# insert the correct symbol when the participant&amp;#10;# press backspace&amp;#10;if &quot;backspace&quot; in key_resp_exp.keys:&amp;#10;    key_resp_exp.keys.remove(&quot;backspace&quot;)&amp;#10;    &amp;#10;    if len(key_resp_exp.keys) &gt; 0:&amp;#10;        key_resp_exp.keys.pop()&amp;#10;        &amp;#10;# insert the correct symbol when the participant&amp;#10;# press space&amp;#10;elif &quot;space&quot; in key_resp_exp.keys:&amp;#10;        key_resp_exp.keys.remove(&quot;space&quot;)&amp;#10;        key_resp_exp.keys.append(' ')&amp;#10;&amp;#10;# save results and end routine when&amp;#10;# return in entered&amp;#10;elif 'return' in key_resp_exp.keys:&amp;#10;    key_resp_exp.keys.remove('return')&amp;#10;    # add data to results file&amp;#10;    thisExp.addData('text', 'summary')&amp;#10;    thisExp.addData('word_list', ' '.join(current_word_list))&amp;#10;    thisExp.addData('word_list_valence', ' '.join(current_word_list_valence))&amp;#10;    thisExp.addData('recall_resp_exp', resp_feedback_text_exp)&amp;#10;    continueRoutine = False&amp;#10;        &amp;#10;resp_feedback_text_exp = ''.join(key_resp_exp.keys)" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="resp_feedback_text_exp = ''&amp;#10;current_word_list.clear()&amp;#10;current_word_list_valence.clear()" valType="extendedCode"/>
+        <Param name="name" updates="None" val="code_recall" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="participant_response_practice">
+      <KeyboardComponent name="key_resp_practice">
+        <Param name="allowedKeys" updates="constant" val="'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','space','backspace','return'" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp_practice" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="all keys" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <TextComponent name="text_prompt_practice">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="name" updates="None" val="text_prompt_practice" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, .20)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="text" updates="constant" val="Escribe palabras:" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <TextComponent name="resp_feedback_practice">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="code"/>
+        <Param name="name" updates="None" val="resp_feedback_practice" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="text" updates="set every frame" val="$resp_feedback_text_practice&amp;#10;" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+      <CodeComponent name="code_recalled_practice">
+        <Param name="Begin Experiment" updates="constant" val="resp_feedback_text_practice= ''" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="# insert the correct symbol when the participant&amp;#10;# press backspace&amp;#10;if &quot;backspace&quot; in key_resp_practice.keys:&amp;#10;    key_resp_practice.keys.remove(&quot;backspace&quot;)&amp;#10;    &amp;#10;    if len(key_resp_practice.keys) &gt; 0:&amp;#10;        key_resp_practice.keys.pop()&amp;#10;        &amp;#10;# insert the correct symbol when the participant&amp;#10;# press space&amp;#10;elif &quot;space&quot; in key_resp_practice.keys:&amp;#10;        key_resp_practice.keys.remove(&quot;space&quot;)&amp;#10;        key_resp_practice.keys.append(' ')&amp;#10;&amp;#10;# save results and end routine when&amp;#10;# return in entered&amp;#10;elif 'return' in key_resp_practice.keys:&amp;#10;    key_resp_practice.keys.remove('return')&amp;#10;    # add data to results file&amp;#10;    thisExp.addData('text', 'summary_practice')&amp;#10;    thisExp.addData('word_list', ' '.join(current_word_list))&amp;#10;    thisExp.addData('word_list_valence', ' '.join(current_word_list_valence))&amp;#10;    thisExp.addData('recall_resp_exp', resp_feedback_text_practice)&amp;#10;    continueRoutine = False&amp;#10;        &amp;#10;resp_feedback_text_practice = ''.join(key_resp_practice.keys)" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="resp_feedback_text_practice = ''&amp;#10;current_word_list.clear()&amp;#10;current_word_list_valence.clear()" valType="extendedCode"/>
+        <Param name="name" updates="None" val="code_recalled_practice" valType="code"/>
+      </CodeComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="choose_block_setup"/>
+    <LoopInitiator loopType="TrialHandler" name="practice">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="practice" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="Instructions"/>
+    <Routine name="fixation_cross_routine"/>
+    <LoopInitiator loopType="TrialHandler" name="practice_trial">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('text', 'amarillo')]), OrderedDict([('text', 'azul')]), OrderedDict([('text', 'blanco')]), OrderedDict([('text', 'crema')]), OrderedDict([('text', 'fucha')]), OrderedDict([('text', 'gris')]), OrderedDict([('text', 'lila')]), OrderedDict([('text', 'magenta')]), OrderedDict([('text', 'naranja')]), OrderedDict([('text', 'negro')]), OrderedDict([('text', 'rojo')]), OrderedDict([('text', 'rosa')]), OrderedDict([('text', 'turquesa')]), OrderedDict([('text', 'verde')]), OrderedDict([('text', 'violeta')])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="practice_trials.csv" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="practice_trial" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="practice_words"/>
+    <Routine name="ISI"/>
+    <LoopTerminator name="practice_trial"/>
+    <Routine name="participant_response_practice"/>
+    <LoopTerminator name="practice"/>
     <Routine name="Instructions"/>
     <LoopInitiator loopType="TrialHandler" name="block_loops">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
@@ -319,7 +459,7 @@
       <Param name="conditions" updates="None" val="[OrderedDict([('text', 'negative11'), ('condition', 'negative')]), OrderedDict([('text', 'negative12'), ('condition', 'negative')]), OrderedDict([('text', 'negative13'), ('condition', 'negative')]), OrderedDict([('text', 'neutral11'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral12'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral13'), ('condition', 'neutral')]), OrderedDict([('text', 'positive11'), ('condition', 'positive')]), OrderedDict([('text', 'positive12'), ('condition', 'positive')]), OrderedDict([('text', 'positive13'), ('condition', 'positive')]), OrderedDict([('text', 'negative21'), ('condition', 'negative')]), OrderedDict([('text', 'negative22'), ('condition', 'negative')]), OrderedDict([('text', 'negative23'), ('condition', 'negative')]), OrderedDict([('text', 'neutral21'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral22'), ('condition', 'neutral')]), OrderedDict([('text', 'neutral23'), ('condition', 'neutral')]), OrderedDict([('text', 'positive21'), ('condition', 'positive')]), OrderedDict([('text', 'positive22'), ('condition', 'positive')]), OrderedDict([('text', 'positive23'), ('condition', 'positive')])]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="exp_trials.csv" valType="str"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
-      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="code"/>
       <Param name="name" updates="None" val="word_list" valType="code"/>
@@ -328,7 +468,7 @@
     <Routine name="trial"/>
     <Routine name="ISI"/>
     <LoopTerminator name="word_list"/>
-    <Routine name="response_participant"/>
+    <Routine name="participant_response_exp"/>
     <Routine name="rest"/>
     <LoopTerminator name="block_loops"/>
   </Flow>
