@@ -15,6 +15,14 @@ stimuli or doesn't display it correctly. It includes practice and experiment tri
 The Free recall task consists of presenting "lists" of words to the participant
 and then asking the participant to recall as many as possible.
 
+This task was adapted to be used with an EEG. Triggers are sent with each words
+and the trigger label for each condition is specified in the stimuli file in the
+column trigger. The correspondence between trigger and condition is as follow:
+
+-   1 = negative
+-   2 = neutral
+-   3 = positive
+
 
 ## Practice trials
 
@@ -50,10 +58,11 @@ blocks. The participant continues by pressing a key.
 -   fixation cross for 1 sec
 -   blank screen for .5 secs
 -   each word is presented for 2 seconds
+-   a trigger is sent to the EEG
 -   participant types all the words he or she remembers
 
 
-### Technical details about blocks
+## Technical details about blocks
 
 -   Words are organized into blocks (lists) to get semi-randomization:
     -   10 lists
