@@ -69,6 +69,19 @@
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="code"/>
       </TextComponent>
+      <ParallelOutComponent name="p_port">
+        <Param name="address" updates="None" val="0x0378" valType="str"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="name" updates="None" val="p_port" valType="code"/>
+        <Param name="startData" updates="None" val="$trigger" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0" valType="code"/>
+        <Param name="stopData" updates="None" val="0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="2" valType="code"/>
+        <Param name="syncScreen" updates="constant" val="True" valType="bool"/>
+      </ParallelOutComponent>
       <CodeComponent name="code">
         <Param name="Begin Experiment" updates="constant" val="current_word_list = []&amp;#10;current_word_list_valence = []" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
